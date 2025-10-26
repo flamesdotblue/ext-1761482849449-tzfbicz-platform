@@ -1,28 +1,45 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import FeatureGrid from './components/FeatureGrid';
+import SOSPanel from './components/SOSPanel';
+import TrustedContacts from './components/TrustedContacts';
+import { ShieldCheck } from 'lucide-react';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-950 text-white">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-neutral-950/70 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-6 h-6 text-emerald-400" />
+            <span className="font-semibold tracking-tight">Aegis — Women Safety</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
+            <a href="#features" className="hover:text-white">Features</a>
+            <a href="#sos" className="hover:text-white">SOS</a>
+            <a href="#contacts" className="hover:text-white">Trusted Contacts</a>
+          </nav>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main>
+        <Hero />
+        <section id="features" className="max-w-7xl mx-auto px-4 py-16">
+          <FeatureGrid />
+        </section>
+        <section id="sos" className="max-w-7xl mx-auto px-4 py-16">
+          <SOSPanel />
+        </section>
+        <section id="contacts" className="max-w-7xl mx-auto px-4 py-16">
+          <TrustedContacts />
+        </section>
+      </main>
+
+      <footer className="border-t border-white/10 mt-8">
+        <div className="max-w-7xl mx-auto px-4 py-8 text-center text-sm text-white/60">
+          Built for safety, privacy, and peace of mind. Stay aware, stay connected.
+        </div>
+      </footer>
+    </div>
+  );
+}
